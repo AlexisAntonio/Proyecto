@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Explora las Voces</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- PANTALLA INICIO -->
+  <section id="home" class="section section-bg">
+    <div class="overlay"></div>
+    <div class="content-wrap">
+      <h1>Explora las Voces</h1>
+      <div class="video-container">
+        <video controls>
+          <source src="assets/videos/inicio.mp4" type="video/mp4" />
+          Tu navegador no soporta la etiqueta de video.
+        </video>
+      </div>
+      <div class="btn-group">
+        <button onclick="scrollToSection('historias')">Historias</button>
+        <button onclick="scrollToSection('rima')">Rima tu Voz</button>
+        <button onclick="scrollToSection('mapa')">Mapa Sonoro</button>
+        <button onclick="scrollToSection('contacto')">Contacto</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- HISTORIAS -->
+  <section id="historias" class="section">
+    <button class="back-button" onclick="scrollToSection('home')">⬅ Inicio</button>
+    <h2>Historias</h2>
+    <div class="video-grid">
+      <video controls><source src="assets/videos/historia1.mp4" type="video/mp4"></video>
+      <video controls><source src="assets/videos/historia2.mp4" type="video/mp4"></video>
+      <video controls><source src="assets/videos/historia3.mp4" type="video/mp4"></video>
+      <video controls><source src="assets/videos/historia4.mp4" type="video/mp4"></video>
+    </div>
+  </section>
+
+  <!-- RIMA TU VOZ -->
+  <section id="rima" class="section section-alt-bg">
+    <button class="back-button" onclick="scrollToSection('home')">⬅ Inicio</button>
+    <h2>Rima tu Voz</h2>
+    <div class="btn-group">
+      <button>Acción 1</button>
+      <button>Acción 2</button>
+    </div>
+    <div class="video-grid">
+      <video controls><source src="assets/videos/rima1.mp4" type="video/mp4"></video>
+      <video controls><source src="assets/videos/rima2.mp4" type="video/mp4"></video>
+      <video controls><source src="assets/videos/rima3.mp4" type="video/mp4"></video>
+    </div>
+  </section>
+
+  <!-- MAPA SONORO -->
+  <section id="mapa" class="section">
+    <button class="back-button" onclick="scrollToSection('home')">⬅ Inicio</button>
+    <h2>Mapa Sonoro</h2>
+    <div class="map-container">
+      <img src="assets/mapa.png" alt="Mapa sonoro" />
+    </div>
+  </section>
+
+<!-- CONTÁCTANOS -->
+<section id="contacto" class="section section-alt-bg">
+  <button class="back-button" onclick="scrollToSection('home')">⬅ Inicio</button>
+  <h2>Contáctanos</h2>
+
+  <textarea class="info-textarea" readonly>
+   Somos una iniciativa que promueve el rescate de las voces de la comunidad.
+   Aquí encontrarás historias, rimas, mapas sonoros y mucho más.
+
+  📍 Ubicación: Lima, Perú
+  📧 Correo: contacto@exploravoces.pe
+  </textarea>
+
+  <div class="social-icons">
+    <a href="https://www.facebook.com" target="_blank" title="Facebook">
+      <i class="fab fa-facebook"></i>
+    </a>
+    <a href="https://www.instagram.com" target="_blank" title="Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://exploravoces.pe" target="_blank" title="Sitio Web">
+      <i class="fas fa-globe"></i>
+    </a>
+  </div>
+</section>
+
+
+  <script src="js/scripts.js"></script>
+</body>
+</html>
