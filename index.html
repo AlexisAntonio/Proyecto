@@ -9,25 +9,25 @@
 </head>
 <body>
 
-  <!-- PANTALLA INICIO -->
-  <section id="home" class="section section-bg">
-    <div class="overlay"></div>
-    <div class="content-wrap">
-      <h1>Explora las Voces</h1>
-      <div class="video-container">
-        <video controls>
-          <source src="assets/videos/inicio.mp4" type="video/mp4" />
-          Tu navegador no soporta la etiqueta de video.
-        </video>
-      </div>
-      <div class="btn-group">
-        <button onclick="scrollToSection('historias')">Historias</button>
-        <button onclick="scrollToSection('rima')">Rima tu Voz</button>
-        <button onclick="scrollToSection('mapa')">Mapa Sonoro</button>
-        <button onclick="scrollToSection('contacto')">Contacto</button>
-      </div>
+<!-- PANTALLA INICIO -->
+<section id="home" class="section section-bg">
+  <div class="overlay"></div>
+  <div class="content-wrap">
+    <h1>Explora las Voces</h1>
+
+    <div class="video-container">
+      <div id="player"></div>
     </div>
-  </section>
+
+    <div class="btn-group">
+      <button onclick="scrollToSection('historias')">Historias</button>
+      <button onclick="scrollToSection('rima')">Rima tu Voz</button>
+      <button onclick="scrollToSection('mapa')">Mapa Sonoro</button>
+      <button onclick="scrollToSection('contacto')">Contáctanos</button>
+    </div>
+  </div>
+</section>
+
 
   <!-- HISTORIAS -->
   <section id="historias" class="section">
@@ -91,7 +91,7 @@
   </div>
 </section>
 
-
+  <script src="https://www.youtube.com/iframe_api"></script>
   <script src="js/scripts.js"></script>
 </body>
 </html>

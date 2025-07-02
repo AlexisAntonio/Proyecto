@@ -165,3 +165,12 @@ h1::after, h2::after {
   margin-left: 40px;
   border-radius: 4px;
 }
+
+/* Estilo para video de YouTube embebido en la página de inicio */
+.video-container iframe {
+  width: 100%;
+  max-width: 800px;
+  height: 450px;
+  border-radius: 10px;
+  border: none;
+}
