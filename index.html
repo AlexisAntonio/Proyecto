@@ -105,25 +105,20 @@
   </div>
 </section>
 
-  <script src="https://www.youtube.com/iframe_api"></script>
-  <script src="js/scripts.js"></script>
   <script>
-  let currentIndex = 0;
+    let currentIndex = 0;
 
-  function moveCarousel(direction) {
-    const track = document.getElementById('videoCarousel');
-    const videos = track.querySelectorAll('video');
-    const total = videos.length;
+    function moveCarousel(direction) {
+      const track = document.getElementById('videoCarousel');
+      const totalItems = track.querySelectorAll('iframe').length;
 
-    currentIndex += direction;
+      currentIndex += direction;
+      if (currentIndex < 0) currentIndex = 0;
+      if (currentIndex >= totalItems) currentIndex = totalItems - 1;
 
-    // Limitar el índice dentro del rango
-    if (currentIndex < 0) currentIndex = 0;
-    if (currentIndex >= total) currentIndex = total - 1;
-
-    const offset = -currentIndex * 100;
-    track.style.transform = `translateX(${offset}%)`;
-  }
-</script>
+      const offset = -currentIndex * 100;
+      track.style.transform = `translateX(${offset}%)`;
+    }
+  </script>
 </body>
 </html>
