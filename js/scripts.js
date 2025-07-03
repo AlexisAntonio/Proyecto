@@ -1,36 +1,32 @@
-// Espera a que todo el contenido esté listo
-document.addEventListener('DOMContentLoaded', function () {
+let player;
 
-  // Función de scroll
-  window.scrollToSection = function(id) {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else {
-      console.warn("No se encontró la sección:", id);
+// Esta función la llama automáticamente la API de YouTube
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('player', {
+    videoId: 'tgbNymZ7vqY', // Tu ID de video de YouTube
+    playerVars: {
+      controls: 1,
+      modestbranding: 1,
+      rel: 0,
+      enablejsapi: 1
     }
-  };
+  });
+}
 
-  // Formulario
-  const form = document.getElementById('contactForm');
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const name = form.name.value.trim();
-      const email = form.email.value.trim();
-      const message = form.message.value.trim();
-      const response = document.getElementById('formResponse');
+// Función para moverse entre secciones y pausar video si no está en inicio
+function scrollToSection(id) {
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth' });
 
-      if (!name || !email.includes('@') || message.length < 10) {
-        response.innerText = "Por favor completa los campos correctamente.";
-        response.style.color = "red";
-        return;
+    // Si tenemos reproductor, controlamos el video
+    if (player && typeof player.pauseVideo === 'function') {
+      if (id === 'home') {
+        // No reproducimos automáticamente, el usuario le da play
+      } else {
+        player.pauseVideo();
       }
-
-      response.innerText = "¡Mensaje enviado con éxito!";
-      response.style.color = "green";
-      form.reset();
-    });
+    }
   }
+}
 
-});
