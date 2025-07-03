@@ -219,3 +219,122 @@ h1::after, h2::after {
 .carousel-btn.next {
   right: 10px;
 }
+
+/* Estilo para las imagenes de historia */
+/* Layout general para sección de historias */
+.historias-layout {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+/* Imagen grande a la izquierda */
+.historia-grande {
+  flex: 1 1 48%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.historia-grande img {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  cursor: pointer;
+}
+
+/* Cuatro imágenes pequeñas en cuadrado */
+.historia-cuadro {
+  flex: 1 1 48%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.historia-cuadro img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  cursor: pointer;
+}
+
+/* Hover efecto para ambas zonas */
+.historia-cuadro img:hover,
+.historia-grande img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+/* Responsive para pantallas medianas (tablets, laptops 768–1024px) */
+@media (max-width: 1024px) {
+  .historias-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .historia-grande,
+  .historia-cuadro {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .historia-cuadro {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .historia-grande img {
+    max-height: 400px;
+  }
+}
+
+/* Responsive para móviles (pantallas menores a 600px) */
+@media (max-width: 600px) {
+  .historia-cuadro {
+    grid-template-columns: 1fr;
+  }
+
+  .historia-cuadro img {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* Pantalla principal: azul intenso + naranja */
+#home {
+  background: linear-gradient(135deg, #0047ff 60%, #ff5b00 100%);
+  color: white;
+}
+
+/* Sección Historias: azul con toques celestes */
+#historias {
+  background: linear-gradient(120deg, #0047ff, #00c0f3);
+  color: white;
+}
+
+/* Rima tu Voz: celeste con naranja */
+#rima {
+  background: linear-gradient(140deg, #00c0f3, #ff5b00);
+  color: black;
+}
+
+/* Mapa sonoro: fondo suave de los 3 colores difuminados */
+#mapa {
+  background: radial-gradient(circle, #0047ff 0%, #00c0f3 50%, #ff5b00 100%);
+  color: white;
+}
+
+/* Contáctanos: fondo claro estilo celeste degradado */
+#contacto {
+  background: linear-gradient(160deg, #00c0f3, #fefefe);
+  color: black;
+}
+
