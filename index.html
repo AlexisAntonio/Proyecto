@@ -45,15 +45,18 @@
   <section id="rima" class="section section-alt-bg">
     <button class="back-button" onclick="scrollToSection('home')">⬅ Inicio</button>
     <h2>Rima tu Voz</h2>
-    <div class="btn-group">
-      <button>Acción 1</button>
-      <button>Acción 2</button>
-    </div>
-    <div class="video-grid">
-      <video controls><source src="assets/videos/rima1.mp4" type="video/mp4"></video>
-      <video controls><source src="assets/videos/rima2.mp4" type="video/mp4"></video>
-      <video controls><source src="assets/videos/rima3.mp4" type="video/mp4"></video>
-    </div>
+    
+    <div class="carousel-container">
+  <button class="carousel-btn prev" onclick="moveCarousel(-1)">⬅</button>
+
+  <div class="carousel-track" id="videoCarousel">
+    <video controls><source src="https://www.youtube.com/watch?v=1nv9br7P7g0&list=RDMM&index=2" type="video/mp4"></video>
+    <video controls><source src="https://www.youtube.com/watch?v=mWRsgZuwf_8&list=RDmWRsgZuwf_8&start_radio=1" type="video/mp4"></video>
+    <video controls><source src="https://www.youtube.com/watch?v=zh8zAmeWG10&list=RDzh8zAmeWG10&start_radio=1" type="video/mp4"></video>
+  </div>
+
+  <button class="carousel-btn next" onclick="moveCarousel(1)">➡</button>
+</div>
   </section>
 
   <!-- MAPA SONORO -->
@@ -93,5 +96,23 @@
 
   <script src="https://www.youtube.com/iframe_api"></script>
   <script src="js/scripts.js"></script>
+  <script>
+  let currentIndex = 0;
+
+  function moveCarousel(direction) {
+    const track = document.getElementById('videoCarousel');
+    const videos = track.querySelectorAll('video');
+    const total = videos.length;
+
+    currentIndex += direction;
+
+    // Limitar el índice dentro del rango
+    if (currentIndex < 0) currentIndex = 0;
+    if (currentIndex >= total) currentIndex = total - 1;
+
+    const offset = -currentIndex * 100;
+    track.style.transform = `translateX(${offset}%)`;
+  }
+</script>
 </body>
 </html>
