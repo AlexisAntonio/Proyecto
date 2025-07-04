@@ -50,24 +50,38 @@
   </section>
 
   <!-- RIMA TU VOZ -->
-  <section id="rima" class="section section-alt-bg">
-    <button class="back-button" onclick="scrollToSection('home')">⬅ Inicio</button>
-    <h2>Rima tu Voz</h2>
-    
-    <div class="carousel-container">
-  <button class="carousel-btn prev" onclick="moveCarousel(-1)">⬅</button>
+<section id="rima" class="section section-alt-bg">
+  <button class="back-button" onclick="scrollToSection('home')">⬅ Inicio</button>
+  <h2>Rima tu Voz</h2>
 
-  <div class="carousel-track" id="videoCarousel">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/zh8zAmeWG10?si=LAdP9CksVGxkZxH3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <div class="rima-layout">
+    <!-- COLUMNA VIDEO -->
+    <div class="video-column">
+      <div class="carousel-container">
+        <button class="carousel-btn prev" onclick="moveCarousel(-1)">⬅</button>
+        <div class="carousel-track" id="videoCarousel">
+          <iframe width="100%" height="315" src="https://www.youtube.com/embed/zh8zAmeWG10?enablejsapi=1" allowfullscreen></iframe>
+          <iframe width="100%" height="315" src="https://www.youtube.com/embed/mWRsgZuwf_8?enablejsapi=1" allowfullscreen></iframe>
+          <iframe width="100%" height="315" src="https://www.youtube.com/embed/1nv9br7P7g0?enablejsapi=1" allowfullscreen></iframe>
+        </div>
+        <button class="carousel-btn next" onclick="moveCarousel(1)">➡</button>
+      </div>
+    </div>
 
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/mWRsgZuwf_8?si=fBDxvBXtVTXxhEDN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <!-- COLUMNA TEXTO -->
+    <div class="text-column">
+      <textarea readonly class="rima-textarea">
+✍️ Bienvenido a Rima tu Voz.
 
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/1nv9br7P7g0?si=bsm8BJgjBhoCsKlD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+Aquí las palabras vibran, las calles respiran y las voces cuentan historias rimadas. 
+Explora los versos urbanos que capturan emociones, realidades y sueños colectivos.
+
+📍 Proyecto colaborativo — Lima, Perú.
+      </textarea>
+    </div>
   </div>
+</section>
 
-  <button class="carousel-btn next" onclick="moveCarousel(1)">➡</button>
-  </div>
-  </section>
 
   <!-- MAPA SONORO -->
   <section id="mapa" class="section">
@@ -105,20 +119,28 @@
 </section>
 
   <script>
-    let currentIndex = 0;
+  let currentIndex = 0;
 
-    function moveCarousel(direction) {
-      const track = document.getElementById('videoCarousel');
-      const totalItems = track.querySelectorAll('iframe').length;
+  function moveCarousel(direction) {
+    const track = document.getElementById('videoCarousel');
+    const iframes = track.querySelectorAll('iframe');
+    const totalItems = iframes.length;
 
-      currentIndex += direction;
-      if (currentIndex < 0) currentIndex = 0;
-      if (currentIndex >= totalItems) currentIndex = totalItems - 1;
-
-      const offset = -currentIndex * 100;
-      track.style.transform = `translateX(${offset}%)`;
+    // Pausar el video actual antes de cambiar
+    const currentVideo = iframes[currentIndex];
+    if (currentVideo && currentVideo.contentWindow) {
+      currentVideo.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
     }
-  </script>
+
+    // Mover al nuevo índice
+    currentIndex += direction;
+    if (currentIndex < 0) currentIndex = 0;
+    if (currentIndex >= totalItems) currentIndex = totalItems - 1;
+
+    const offset = -currentIndex * 100;
+    track.style.transform = `translateX(${offset}%)`;
+  }
+</script>
 <script src="https://www.youtube.com/iframe_api"></script>
 <script src="js/scripts.js"></script>
 </body>
