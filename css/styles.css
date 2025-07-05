@@ -4,10 +4,11 @@
   box-sizing: border-box;
 }
 body {
-  font-family: 'Segoe UI', sans-serif;
-  color: #333;
-  background: #fff;
+  background: #000;
+  color: #fff;
+  cursor: url('https://cdn-icons-png.flaticon.com/512/1296/1296875.png') 16 16 , auto;
 }
+
 
 .section {
   min-height: 100vh;
@@ -32,6 +33,7 @@ body {
   position: relative;
   z-index: 1;
   color: #fff;
+  font-size: xx-large;
   text-align: center;
 }
 .section-alt-bg {
@@ -42,7 +44,7 @@ body {
 .btn-group button,
 .back-button,
 #contactForm button {
-  background-color: #021dff;
+  background-color: #F76B00;
   color: #fff;
   border: none;
   padding: 12px 20px;
@@ -55,7 +57,7 @@ body {
 .btn-group button:hover,
 .back-button:hover,
 #contactForm button:hover {
-  background-color: #037a4a;
+  background-color: #d48a00;
   transform: translateY(-2px);
 }
 .back-button {
@@ -160,7 +162,7 @@ h1::after, h2::after {
   display: block;
   width: 60px;
   height: 4px;
-  background: #04AA6D;
+  background: #d48a00;
   margin-top: 8px;
   margin-left: 40px;
   border-radius: 4px;
@@ -310,33 +312,26 @@ h1::after, h2::after {
 
 /* Pantalla principal: azul intenso + naranja */
 #home {
-  background: linear-gradient(135deg, #0047ff 60%, #ff5b00 100%);
-  color: white;
+  background: #022beb;
+  color: #fff;
 }
-
-/* Sección Historias: azul con toques celestes */
 #historias {
-  background: linear-gradient(120deg, #0047ff, #00c0f3);
-  color: white;
+  background: #022beb;
+  color: #fff;
 }
-
-/* Rima tu Voz: celeste con naranja */
 #rima {
-  background: linear-gradient(140deg, #00c0f3, #ff5b00);
-  color: black;
+  background:  #bb3b3c;
+  color: #333;
 }
-
-/* Mapa sonoro: fondo suave de los 3 colores difuminados */
 #mapa {
-  background: radial-gradient(circle, #0047ff 0%, #00c0f3 50%, #ff5b00 100%);
-  color: white;
+  background:  #97D9E8;
+  color: #fff;
+}
+#contacto {
+  background:  #022beb;
+  color: #222;
 }
 
-/* Contáctanos: fondo claro estilo celeste degradado */
-#contacto {
-  background: linear-gradient(160deg, #00c0f3, #fefefe);
-  color: black;
-}
 
 .rima-layout {
   display: flex;
@@ -386,7 +381,7 @@ h1::after, h2::after {
 
 .rima-textarea {
   width: 100%;
-  height: 315px;
+  height: 225px;
   padding: 20px;
   font-size: 1rem;
   font-family: 'Segoe UI', sans-serif;
@@ -397,3 +392,11 @@ h1::after, h2::after {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.background-video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
