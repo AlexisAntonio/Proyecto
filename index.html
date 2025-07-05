@@ -115,41 +115,35 @@
   </section>
 
   <!-- RIMA TU VOZ -->
-<section id="rima" class="section section-alt-bg">
-  <button class="back-button" onclick="scrollToSection('home')">
-    <img src="assets/home.png" alt="Inicio" class="icon-home" />
-  </button>
-  <h2 class="titulo-rimas" >Rima tu Voz</h2>
+    <section id="rima" class="seccion-rima">
+  <h2 class="titulo-rimas">🎤 Rima tu Voz</h2>
 
   <div class="rima-layout">
-    <!-- COLUMNA VIDEO -->
-    <div class="video-column">
-      <div class="carousel-container">
-        <button class="carousel-btn prev" onclick="moveCarousel(-1)">⬅</button>
-        <div class="carousel-track" id="videoCarousel">
-          <iframe width="100%" height="315" src="https://www.youtube.com/embed/zh8zAmeWG10?enablejsapi=1" allowfullscreen></iframe>
-          <iframe width="100%" height="315" src="https://www.youtube.com/embed/mWRsgZuwf_8?enablejsapi=1" allowfullscreen></iframe>
-          <iframe width="100%" height="315" src="https://www.youtube.com/embed/1nv9br7P7g0?enablejsapi=1" allowfullscreen></iframe>
-        </div>
-        <button class="carousel-btn next" onclick="moveCarousel(1)">➡</button>
-      </div>
-    </div>
+    <!-- Carrusel de video (1 a la vez) -->
+    <div class="carousel-container">
+      <button id="prevBtn" class="carousel-btn" onclick="moveCarousel(-1)">⬅</button>
 
-    <!-- COLUMNA TEXTO -->
-    <div class="text-column">
-      <div class="rima-textarea1">
-        <textarea readonly class="rima-textarea">
-        ✍️ Bienvenido a Rima tu Voz.
-      </textarea>
+      <div class="carousel-track" id="videoCarousel">
+        <video src="assets/INTRO LAS CALLES HABLAN.mp4" controls class="carousel-video"></video>
+        <video src="assets/INTRO LAS CALLES HABLAN.mp4" controls class="carousel-video"></video>
+        <video src="assets/INTRO LAS CALLES HABLAN.mp4" controls class="carousel-video"></video>
       </div>
-      <div class="rima-textarea2">
-        <textarea readonly class="rima-textarea">
-        ✍️ Bienvenido a Rima tu Voz.
-      </textarea>
+
+      <button id="nextBtn" class="carousel-btn" onclick="moveCarousel(1)">➡</button>
+      </div>
+
+      <!-- Textos -->
+      <div class="text-column">
+        <div class="caja-rima">
+          <p>✍️ Bienvenido a Rima tu Voz. Aquí las palabras se convierten en revolución lírica.</p>
+        </div>
+        <div class="caja-rima">
+          <p>🔥 Tu voz tiene poder. Cada verso cuenta, cada rima resuena en las calles.</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
 
 
   <!-- MAPA SONORO -->
@@ -256,24 +250,27 @@
 
   function moveCarousel(direction) {
     const track = document.getElementById('videoCarousel');
-    const iframes = track.querySelectorAll('iframe');
-    const totalItems = iframes.length;
+    const videos = document.querySelectorAll('.carousel-video');
+    const totalVideos = videos.length;
 
-    // Pausar el video actual antes de cambiar
-    const currentVideo = iframes[currentIndex];
-    if (currentVideo && currentVideo.contentWindow) {
-      currentVideo.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-    }
-
-    // Mover al nuevo índice
     currentIndex += direction;
-    if (currentIndex < 0) currentIndex = 0;
-    if (currentIndex >= totalItems) currentIndex = totalItems - 1;
 
-    const offset = -currentIndex * 100;
-    track.style.transform = `translateX(${offset}%)`;
+    if (currentIndex < 0) currentIndex = 0;
+    if (currentIndex >= totalVideos) currentIndex = totalVideos - 1;
+
+    const offset = videos[0].offsetWidth * currentIndex;
+    track.style.transform = `translateX(-${offset}px)`;
+
+    document.getElementById('prevBtn').style.display = currentIndex > 0 ? 'block' : 'none';
+    document.getElementById('nextBtn').style.display = currentIndex < totalVideos - 1 ? 'block' : 'none';
   }
+
+  // Esperar a que la página y estilos carguen
+  window.addEventListener('load', () => {
+    setTimeout(() => moveCarousel(0), 100); // Pequeña pausa para asegurar que se calcule bien el ancho
+  });
 </script>
+
 <script src="https://www.youtube.com/iframe_api"></script>
 <script src="js/scripts.js"></script>
 <script>

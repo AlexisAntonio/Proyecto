@@ -30,3 +30,30 @@ function scrollToSection(id) {
   }
 }
 
+function moveCarousel(direction) {
+  const track = document.getElementById('videoCarousel');
+  const videos = document.querySelectorAll('.carousel-video');
+  const totalVideos = videos.length;
+
+  // Pausar el video actual antes de cambiar
+  if (videos[currentIndex] && typeof videos[currentIndex].pause === 'function') {
+    videos[currentIndex].pause();
+  }
+
+  currentIndex += direction;
+
+  if (currentIndex < 0) currentIndex = 0;
+  if (currentIndex >= totalVideos) currentIndex = totalVideos - 1;
+
+  const offset = videos[0].offsetWidth * currentIndex;
+  track.style.transform = `translateX(-${offset}px)`;
+
+  // Mostrar u ocultar flechas
+  document.getElementById('prevBtn').style.display = currentIndex > 0 ? 'block' : 'none';
+  document.getElementById('nextBtn').style.display = currentIndex < totalVideos - 1 ? 'block' : 'none';
+}
+
+
+window.addEventListener('load', () => {
+  moveCarousel(0); // Mostrar correctamente desde el inicio
+});
