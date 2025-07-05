@@ -805,6 +805,9 @@ h1::after, h2::after {
 }
 
 
+/* CAMBIOS CHAT BOT HACIA ABAJO */
+
+
 .chatbot-container {
   position: fixed;
   bottom: 20px;
