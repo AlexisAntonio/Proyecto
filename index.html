@@ -19,7 +19,11 @@
     <h1>Explora las Voces</h1>
 
     <div class="video-container">
-      <div id="player"></div>
+      <div id="video-container_2">
+        <video id="video-container_3" controls autoplay muted loop>
+          <source src="assets/INTRO LAS CALLES HABLAN.mp4" type="video/mp4">
+        </video>
+      </div>
     </div>
 
     <div class="btn-group">
@@ -33,8 +37,10 @@
 
   <!-- HISTORIAS -->
   <section id="historias" class="section">
-    <button class="back-button" onclick="scrollToSection('home')">⬅ Inicio</button>
-    <h2>Historias</h2>
+    <button class="back-button" onclick="scrollToSection('home')">
+      <img src="assets/home.png" alt="Inicio" class="icon-home" />
+    </button>
+    <h2 class="titulo-historias" >Historias</h2>
 
     <div class="historias-layout">
       <!-- Imagen grande a la izquierda -->
@@ -54,8 +60,10 @@
 
   <!-- RIMA TU VOZ -->
 <section id="rima" class="section section-alt-bg">
-  <button class="back-button" onclick="scrollToSection('home')">⬅ Inicio</button>
-  <h2>Rima tu Voz</h2>
+  <button class="back-button" onclick="scrollToSection('home')">
+    <img src="assets/home.png" alt="Inicio" class="icon-home" />
+  </button>
+  <h2 class="titulo-rimas" >Rima tu Voz</h2>
 
   <div class="rima-layout">
     <!-- COLUMNA VIDEO -->
@@ -76,21 +84,11 @@
       <div class="rima-textarea1">
         <textarea readonly class="rima-textarea">
         ✍️ Bienvenido a Rima tu Voz.
-
-        Aquí las palabras vibran, las calles respiran y las voces cuentan historias rimadas. 
-        Explora los versos urbanos que capturan emociones, realidades y sueños colectivos.
-
-        📍 Proyecto colaborativo — Lima, Perú.
       </textarea>
       </div>
       <div class="rima-textarea2">
         <textarea readonly class="rima-textarea">
         ✍️ Bienvenido a Rima tu Voz.
-
-        Aquí las palabras vibran, las calles respiran y las voces cuentan historias rimadas. 
-        Explora los versos urbanos que capturan emociones, realidades y sueños colectivos.
-
-        📍 Proyecto colaborativo — Lima, Perú.
       </textarea>
       </div>
     </div>
@@ -99,39 +97,103 @@
 
 
   <!-- MAPA SONORO -->
-  <section id="mapa" class="section">
-    <button class="back-button" onclick="scrollToSection('home')">⬅ Inicio</button>
-    <h2>Mapa Sonoro</h2>
-    <div class="map-container">
-      <img src="assets/img1.jpg" alt="Mapa sonoro" />
+<section id="mapa" class="section">
+  <button class="back-button" onclick="scrollToSection('home')">
+    <img src="assets/home.png" alt="Inicio" class="icon-home" />
+  </button>
+  <h2 class="titulo-mapa">Mapa Sonoro</h2>
+
+  <div class="mapa-interactivo">
+    <img src="assets/barranco-mapa.jpg" alt="Mapa de Lima" class="img-mapa" />
+
+    <!-- Puntos del mapa -->
+    <div class="punto-mapa" style="top: 60%; left: 60%;" onclick="mostrarHistoria('historia1')">
+      <i class="fas fa-map-marker-alt"></i>
+    </div>
+
+    <div class="punto-mapa" style="top: 30%; left: 40%;" onclick="mostrarHistoria('historia2')">
+      <i class="fas fa-map-marker-alt"></i>
+    </div>
+
+    <div class="punto-mapa" style="top: 45%; left: 75%;" onclick="mostrarHistoria('historia3')">
+      <i class="fas fa-map-marker-alt"></i>
+    </div>
+
+    <div class="punto-mapa" style="top: 60%; left: 30%;" onclick="mostrarHistoria('historia4')">
+      <i class="fas fa-map-marker-alt"></i>
+    </div>
+  </div>
+
+  <!-- Historia 1 -->
+  <div id="historia1" class="historia-modal">
+    <div class="contenido-historia">
+      <span class="cerrar" onclick="cerrarHistoria('historia1')">&times;</span>
+      <img src="assets/grafiti1.jpg" alt="Grafiti en Barranco" />
+      <h3>Graffiti en Av. Bolognesi - Barranco</h3>
+      <p>Esta obra representa la voz de la juventud barranquina, con trazos que evocan libertad y protesta social.</p>
+    </div>
+  </div>
+
+  <!-- Historia 2 -->
+  <div id="historia2" class="historia-modal">
+    <div class="contenido-historia">
+      <span class="cerrar" onclick="cerrarHistoria('historia2')">&times;</span>
+      <img src="assets/grafiti2.jpg" alt="Grafiti en Comas" />
+      <h3>Graffiti en la Av. Universitaria - Comas</h3>
+      <p>Un mural que muestra escenas cotidianas del distrito, mezclando cultura urbana con historia local.</p>
+    </div>
+  </div>
+
+  <!-- Historia 3 -->
+  <div id="historia3" class="historia-modal">
+    <div class="contenido-historia">
+      <span class="cerrar" onclick="cerrarHistoria('historia3')">&times;</span>
+      <img src="assets/grafiti3.jpg" alt="Grafiti en Miraflores" />
+      <h3>Graffiti cerca del Malecón - Miraflores</h3>
+      <p>Este arte urbano busca concientizar sobre la protección del medio ambiente y el océano.</p>
+    </div>
+  </div>
+
+  <!-- Historia 4 -->
+  <div id="historia4" class="historia-modal">
+    <div class="contenido-historia">
+      <span class="cerrar" onclick="cerrarHistoria('historia4')">&times;</span>
+      <img src="assets/grafiti4.jpg" alt="Grafiti en San Juan de Lurigancho" />
+      <h3>Grafiti en el Parque Zonal - SJL</h3>
+      <p>Una poderosa imagen que denuncia la violencia y lucha por los derechos de la mujer.</p>
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- CONTÁCTANOS -->
+  <section id="contacto" class="section contacto-elegante">
+    <button class="back-button" onclick="scrollToSection('home')">
+      <img src="assets/home.png" alt="Inicio" class="icon-home" />
+    </button>
+
+    <h2 class="titulo-contactanos">Contáctanos</h2>
+
+    <div class="card-contacto">
+      <p class="descripcion-contacto">
+        Somos una iniciativa que promueve el <strong>rescate de las voces de la comunidad</strong>.
+        Aquí encontrarás <em>historias, rimas, mapas sonoros</em> y mucho más.
+      </p>
+
+      <ul class="info-contacto">
+        <li><i class="fas fa-map-marker-alt"></i> Lima, Perú</li>
+        <li><i class="fas fa-envelope"></i> contacto@exploravoces.pe</li>
+      </ul>
+
+      <div class="social-contacto">
+        <a href="https://www.facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://exploravoces.pe" target="_blank" title="Sitio Web"><i class="fas fa-globe"></i></a>
+      </div>
     </div>
   </section>
 
-<!-- CONTÁCTANOS -->
-<section id="contacto" class="section section-alt-bg">
-  <button class="back-button" onclick="scrollToSection('home')">⬅ Inicio</button>
-  <h2>Contáctanos</h2>
-
-  <textarea class="info-textarea" readonly>
-   Somos una iniciativa que promueve el rescate de las voces de la comunidad.
-   Aquí encontrarás historias, rimas, mapas sonoros y mucho más.
-
-  📍 Ubicación: Lima, Perú
-  📧 Correo: contacto@exploravoces.pe
-  </textarea>
-
-  <div class="social-icons">
-    <a href="https://www.facebook.com" target="_blank" title="Facebook">
-      <i class="fab fa-facebook"></i>
-    </a>
-    <a href="https://www.instagram.com" target="_blank" title="Instagram">
-      <i class="fab fa-instagram"></i>
-    </a>
-    <a href="https://exploravoces.pe" target="_blank" title="Sitio Web">
-      <i class="fas fa-globe"></i>
-    </a>
-  </div>
-</section>
 
   <script>
   let currentIndex = 0;
@@ -158,5 +220,17 @@
 </script>
 <script src="https://www.youtube.com/iframe_api"></script>
 <script src="js/scripts.js"></script>
+<script>
+  function mostrarHistoria(id) {
+    document.getElementById(id).style.display = "flex";
+  }
+
+  function cerrarHistoria(id) {
+    document.getElementById(id).style.display = "none";
+  }
+</script>
+<script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+
+
 </body>
 </html>

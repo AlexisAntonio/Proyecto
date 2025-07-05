@@ -36,9 +36,6 @@ body {
   font-size: xx-large;
   text-align: center;
 }
-.section-alt-bg {
-  background-color: #f3f4f6;
-}
 
 /* Botones */
 .btn-group button,
@@ -324,11 +321,11 @@ h1::after, h2::after {
   color: #333;
 }
 #mapa {
-  background:  #97D9E8;
+  background:  #022beb;
   color: #fff;
 }
 #contacto {
-  background:  #022beb;
+  background:  #000;
   color: #222;
 }
 
@@ -399,4 +396,228 @@ h1::after, h2::after {
   height: 100%;
   object-fit: cover;
   z-index: 0;
+}
+.back-button img.icon-home {
+  width: 32px;
+  height: 32px;
+  filter: brightness(0) invert(1); /* si quieres que se vea blanco */
+}
+.titulo-historias {
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 40px;
+  color: white;
+  font-weight: 700;
+  position: relative;
+}
+
+.titulo-historias::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 5px;
+  background: #ffa965;
+  margin: 12px auto 0;
+  border-radius: 4px;
+}
+.titulo-rimas {
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 40px;
+  color: white;
+  font-weight: 700;
+  position: relative;
+}
+
+.titulo-rimas::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 5px;
+  background: #ffa965;
+  margin: 12px auto 0;
+  border-radius: 4px;
+}
+.titulo-mapa {
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #000;
+  font-weight: 700;
+  position: relative;
+}
+
+.titulo-mapa::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 5px;
+  background: #ffa965;
+  margin: 12px auto 0;
+  border-radius: 4px;
+}
+
+.contacto-elegante {
+  background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+  color: #f1f1f1;
+}
+
+.titulo-contactanos {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #00c0f3;
+  position: relative;
+}
+
+.titulo-contactanos::after {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 4px;
+  background: #ffa965;
+  margin: 14px auto 0;
+  border-radius: 4px;
+}
+
+.card-contacto {
+  background: rgba(247, 245, 245, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 40px 30px;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-contacto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.8);
+}
+
+.descripcion-contacto {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #e6e6e6;
+}
+
+.info-contacto {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.info-contacto li {
+  margin: 10px 0;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+}
+
+.info-contacto i {
+  color: #ffa965;
+  font-size: 1.2rem;
+}
+
+.social-contacto {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.social-contacto a {
+  color: #00c0f3;
+  font-size: 1.6rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-contacto a:hover {
+  transform: scale(1.2);
+  color: #ffa965;
+}
+
+.mapa-interactivo {
+  position: relative;
+  max-width: 900px;
+  margin: auto;
+}
+
+.img-mapa {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.punto-mapa {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  color: #F76B00;
+  font-size: 2rem;
+  cursor: pointer;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1) translate(-50%, -100%); }
+  50% { transform: scale(1.2) translate(-50%, -100%); }
+  100% { transform: scale(1) translate(-50%, -100%); }
+}
+
+.historia-modal {
+  display: none;
+  position: fixed;
+  z-index: 99;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.contenido-historia {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.5);
+}
+
+.contenido-historia img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.contenido-historia h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #022beb;
+}
+
+.contenido-historia p {
+  font-size: 1rem;
+  color: #333;
+}
+
+.cerrar {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 2rem;
+  color: #333;
+  cursor: pointer;
 }
