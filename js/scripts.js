@@ -19,16 +19,18 @@ function scrollToSection(id) {
   if (el) {
     el.scrollIntoView({ behavior: 'smooth' });
 
-    // Si tenemos reproductor, controlamos el video
-    if (player && typeof player.pauseVideo === 'function') {
-      if (id === 'home') {
-        // No reproducimos automáticamente, el usuario le da play
+    // Pausar el video de fondo si salimos de la home
+    const video = document.getElementById('video-container_3');
+    if (video && typeof video.pause === 'function') {
+      if (id !== 'home') {
+        video.pause();
       } else {
-        player.pauseVideo();
+        video.play();
       }
     }
   }
 }
+
 
 function moveCarousel(direction) {
   const track = document.getElementById('videoCarousel');
@@ -56,4 +58,12 @@ function moveCarousel(direction) {
 
 window.addEventListener('load', () => {
   moveCarousel(0); // Mostrar correctamente desde el inicio
+});
+
+document.getElementById("chatbot-toggle").addEventListener("click", () => {
+  document.getElementById("chatbot-window").classList.toggle("hidden");
+});
+
+document.getElementById("close-chat").addEventListener("click", () => {
+  document.getElementById("chatbot-window").classList.add("hidden");
 });

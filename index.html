@@ -40,7 +40,7 @@
   <button class="back-button" onclick="scrollToSection('home')">
     <img src="assets/home.png" alt="Inicio" class="icon-home" />
   </button>
-  <h2 class="titulo-historias">Historias</h2>
+  <h2 class="titulo-historias">📖 Historias</h2>
 
   <div class="contenedor-historias">
     <!-- Imagen principal grande -->
@@ -115,7 +115,10 @@
   </section>
 
   <!-- RIMA TU VOZ -->
-    <section id="rima" class="seccion-rima">
+  <section id="rima" class="seccion-rima">
+    <button class="back-button" onclick="scrollToSection('home')">
+     <img src="assets/home.png" alt="Inicio" class="icon-home" />
+    </button>
   <h2 class="titulo-rimas">🎤 Rima tu Voz</h2>
 
   <div class="rima-layout">
@@ -151,7 +154,7 @@
   <button class="back-button" onclick="scrollToSection('home')">
     <img src="assets/home.png" alt="Inicio" class="icon-home" />
   </button>
-  <h2 class="titulo-mapa">Mapa Sonoro</h2>
+  <h2 class="titulo-mapa">🗺️ Mapa Sonoro</h2>
 
   <div class="mapa-interactivo">
     <img src="assets/barranco-mapa.jpg" alt="Mapa de Lima" class="img-mapa" />
@@ -223,7 +226,7 @@
       <img src="assets/home.png" alt="Inicio" class="icon-home" />
     </button>
 
-    <h2 class="titulo-contactanos">Contáctanos</h2>
+    <h2 class="titulo-contactanos">📱 Contáctanos</h2>
 
     <div class="card-contacto">
       <p class="descripcion-contacto">
@@ -282,6 +285,34 @@
     document.getElementById(id).style.display = "none";
   }
 </script>
+
+<!-- Botón de chat flotante -->
+<div id="chat-button">
+  <img src="assets/tu-icono.gif" alt="Chat" />
+</div>
+
+<!-- Botón flotante -->
+<div class="chatbot-container">
+  <button id="chatbot-toggle">
+    <img src="assets/tu-icono.gif" alt="ChatBot" />
+  </button>
+
+  <!-- Ventana del chat (oculta por defecto) -->
+  <div id="chatbot-window" class="hidden">
+    <div class="chatbot-header">
+      <span>Asistente Virtual</span>
+      <button id="close-chat">×</button>
+    </div>
+    <iframe
+      allow="microphone;"
+      width="350"
+      height="430"
+      src="https://console.dialogflow.com/api-client/demo/embedded/tu-id-del-agent">
+    </iframe>
+  </div>
+</div>
+
+
 <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
 
 
