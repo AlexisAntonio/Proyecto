@@ -36,26 +36,82 @@
 </section>
 
   <!-- HISTORIAS -->
-  <section id="historias" class="section">
-    <button class="back-button" onclick="scrollToSection('home')">
-      <img src="assets/home.png" alt="Inicio" class="icon-home" />
-    </button>
-    <h2 class="titulo-historias" >Historias</h2>
+  <section id="historias" class="seccion-historias">
+  <button class="back-button" onclick="scrollToSection('home')">
+    <img src="assets/home.png" alt="Inicio" class="icon-home" />
+  </button>
+  <h2 class="titulo-historias">Historias</h2>
 
-    <div class="historias-layout">
-      <!-- Imagen grande a la izquierda -->
-      <div class="historia-grande">
-        <img src="assets/img1.jpg" alt="Historia destacada" />
+  <div class="contenedor-historias">
+    <!-- Imagen principal grande -->
+    <div class="historia-principal" onclick="mostrarHistoria('historia-grande')">
+      <img src="assets/img1.jpg" alt="Historia destacada" />
+    </div>
+
+    <!-- Cuadro de imágenes pequeñas -->
+    <div class="galeria-historias">
+      <div onclick="mostrarHistoria('historia-pequeña-1')">
+        <img src="assets/img1.jpg" alt="Historia 01" />
       </div>
-
-      <!-- Cuatro imágenes pequeñas a la derecha -->
-      <div class="historia-cuadro">
-        <img src="assets/img1.jpg" alt="Historia 2" />
-        <img src="assets/img1.jpg" alt="Historia 3" />
-        <img src="assets/img1.jpg" alt="Historia 4" />
-        <img src="assets/img1.jpg" alt="Historia 5" />
+      <div onclick="mostrarHistoria('historia-pequeña-2')">
+        <img src="assets/img1.jpg" alt="Historia 02" />
+      </div>
+      <div onclick="mostrarHistoria('historia-pequeña-3')">
+        <img src="assets/img1.jpg" alt="Historia 03" />
+      </div>
+      <div onclick="mostrarHistoria('historia-pequeña-4')">
+        <img src="assets/img1.jpg" alt="Historia 04" />
       </div>
     </div>
+  </div>
+
+    <!-- Historia 01 -->
+      <div id="historia-grande" class="historia-modal">
+        <div class="contenido-historia">
+          <span class="cerrar" onclick="cerrarHistoria('historia-grande')">&times;</span>
+          <img src="assets/grafiti1.jpg" alt="Grafiti en Barranco" />
+          <h3>Graffiti en Av. Bolognesi - Barranco</h3>
+          <p>Esta obra representa la voz de la juventud barranquina, con trazos que evocan libertad y protesta social.</p>
+        </div>
+      </div>
+
+    <!-- Historia 02 -->
+      <div id="historia-pequeña-1" class="historia-modal">
+        <div class="contenido-historia">
+          <span class="cerrar" onclick="cerrarHistoria('historia-pequeña-1')">&times;</span>
+          <img src="assets/grafiti1.jpg" alt="Grafiti en Barranco" />
+          <h3>Graffiti en Av. Bolognesi - Barranco</h3>
+          <p>Esta obra representa la voz de la juventud barranquina, con trazos que evocan libertad y protesta social.</p>
+        </div>
+      </div>
+    <!-- Historia 03 -->
+      <div id="historia-pequeña-2" class="historia-modal">
+        <div class="contenido-historia">
+          <span class="cerrar" onclick="cerrarHistoria('historia-pequeña-2')">&times;</span>
+          <img src="assets/grafiti1.jpg" alt="Grafiti en Barranco" />
+          <h3>Graffiti en Av. Bolognesi - Barranco</h3>
+          <p>Esta obra representa la voz de la juventud barranquina, con trazos que evocan libertad y protesta social.</p>
+        </div>
+      </div>
+    <!-- Historia 04 -->
+      <div id="historia-pequeña-3" class="historia-modal">
+        <div class="contenido-historia">
+          <span class="cerrar" onclick="cerrarHistoria('historia-pequeña-3')">&times;</span>
+          <img src="assets/grafiti1.jpg" alt="Grafiti en Barranco" />
+          <h3>Graffiti en Av. Bolognesi - Barranco</h3>
+          <p>Esta obra representa la voz de la juventud barranquina, con trazos que evocan libertad y protesta social.</p>
+        </div>
+      </div>
+    <!-- Historia 05 -->
+      <div id="historia-pequeña-4" class="historia-modal">
+        <div class="contenido-historia">
+          <span class="cerrar" onclick="cerrarHistoria('historia-pequeña-4')">&times;</span>
+          <img src="assets/grafiti1.jpg" alt="Grafiti en Barranco" />
+          <h3>Graffiti en Av. Bolognesi - Barranco</h3>
+          <p>Esta obra representa la voz de la juventud barranquina, con trazos que evocan libertad y protesta social.</p>
+        </div>
+      </div>
+
   </section>
 
   <!-- RIMA TU VOZ -->
