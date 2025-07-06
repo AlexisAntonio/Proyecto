@@ -45,16 +45,16 @@
   <div class="contenedor-historias">
     <!-- Imagen principal grande -->
     <div class="historia-principal" onclick="mostrarHistoria('historia-grande')">
-      <img src="assets/img1.jpg" alt="Historia destacada" />
+      <img src="assets/grafiti2.jpg" alt="Historia destacada" />
     </div>
 
     <!-- Cuadro de imágenes pequeñas -->
     <div class="galeria-historias">
       <div onclick="mostrarHistoria('historia-pequeña-1')">
-        <img src="assets/img1.jpg" alt="Historia 01" />
+        <img src="assets/grafiti3.jpg" alt="Historia 01" />
       </div>
       <div onclick="mostrarHistoria('historia-pequeña-2')">
-        <img src="assets/img1.jpg" alt="Historia 02" />
+        <img src="assets/grafiti1.jpg" alt="Historia 02" />
       </div>
       <div onclick="mostrarHistoria('historia-pequeña-3')">
         <img src="assets/img1.jpg" alt="Historia 03" />
@@ -69,7 +69,7 @@
       <div id="historia-grande" class="historia-modal">
         <div class="contenido-historia">
           <span class="cerrar" onclick="cerrarHistoria('historia-grande')">&times;</span>
-          <img src="assets/grafiti1.jpg" alt="Grafiti en Barranco" />
+          <img src="assets/grafiti2.jpg" alt="Grafiti en Barranco" />
           <h3>Graffiti en Av. Bolognesi - Barranco</h3>
           <p>Esta obra representa la voz de la juventud barranquina, con trazos que evocan libertad y protesta social.</p>
         </div>
@@ -79,7 +79,7 @@
       <div id="historia-pequeña-1" class="historia-modal">
         <div class="contenido-historia">
           <span class="cerrar" onclick="cerrarHistoria('historia-pequeña-1')">&times;</span>
-          <img src="assets/grafiti1.jpg" alt="Grafiti en Barranco" />
+          <img src="assets/grafiti3.jpg" alt="Grafiti en Barranco" />
           <h3>Graffiti en Av. Bolognesi - Barranco</h3>
           <p>Esta obra representa la voz de la juventud barranquina, con trazos que evocan libertad y protesta social.</p>
         </div>
@@ -97,7 +97,7 @@
       <div id="historia-pequeña-3" class="historia-modal">
         <div class="contenido-historia">
           <span class="cerrar" onclick="cerrarHistoria('historia-pequeña-3')">&times;</span>
-          <img src="assets/grafiti1.jpg" alt="Grafiti en Barranco" />
+          <img src="assets/img1.jpg" alt="Grafiti en Barranco" />
           <h3>Graffiti en Av. Bolognesi - Barranco</h3>
           <p>Esta obra representa la voz de la juventud barranquina, con trazos que evocan libertad y protesta social.</p>
         </div>
@@ -290,38 +290,83 @@
 
 <!-- CAMBIOS CHATBOT HACIA ABAJO-->
 
-<!-- Botón de chat flotante -->
-<div id="chat-button">
-  <img src="assets/tu-icono.gif" alt="Chat" />
-</div>
+      <!-- Botón flotante -->
+    <div class="chatbot-container">
+      <button id="chatbot-toggle"><img src="assets/cursor.png" alt="Chatbot" class="icon-chat"></button>
 
-<!-- Botón flotante -->
-<div class="chatbot-container">
-  <button id="chatbot-toggle">
-    <img src="assets/tu-icono.gif" alt="ChatBot" />
-  </button>
-
-  <!-- Ventana del chat (oculta por defecto) -->
-  <div id="chatbot-window" class="hidden">
-    <div class="chatbot-header">
-      <span>Asistente Virtual</span>
-      <button id="close-chat">×</button>
+      <div id="chatbot-window" class="chatbot-window hidden">
+        <div class="chatbot-header">
+          <span>Asistente Virtual</span>
+          <button id="close-chat"><img src="assets/cerrar.png" class="icon-cerrar"></button>
+        </div>
+        <div class="chatbot-body" id="chat-content">
+          <div class="message bot">👋 ¡Hola! ¿En qué puedo ayudarte?</div>
+          <div class="options">
+            <button onclick="selectOption('¿Cómo puedo registrarme?')">¿Cómo puedo registrarme?</button>
+            <button onclick="selectOption('¿Dónde están ubicados?')">¿Dónde están ubicados?</button>
+            <button onclick="selectOption('¿Qué métodos de pago aceptan?')">¿Qué métodos de pago aceptan?</button>
+          </div>
+        </div>
+      </div>
     </div>
-    <iframe
-      allow="microphone;"
-      width="350"
-      height="430"
-      src="https://console.dialogflow.com/api-client/demo/embedded/tu-id-del-agent">
-    </iframe>
-  </div>
+
 </div>
-
-
 
 <!-- CAMBIOS CHATBOT-->
 
 
 <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+
+<script>
+document.getElementById('chatbot-toggle').addEventListener('click', function () {
+  document.getElementById('chatbot-window').classList.remove('hidden');
+  document.getElementById('chatbot-toggle').style.display = 'none'; // Oculta el botón
+});
+
+document.getElementById('close-chat').addEventListener('click', function () {
+  document.getElementById('chatbot-window').classList.add('hidden');
+  document.getElementById('chatbot-toggle').style.display = 'block'; // Muestra el botón
+});
+
+
+function selectOption(text) {
+  const chatContent = document.getElementById('chat-content');
+
+  // Agrega la pregunta del usuario
+  const userMsg = document.createElement('div');
+  userMsg.className = 'message user';
+  userMsg.textContent = text;
+  chatContent.appendChild(userMsg);
+
+  // Borra botones anteriores
+  const options = document.querySelector('.options');
+  if (options) options.remove();
+
+  // Genera respuesta
+  const botMsg = document.createElement('div');
+  botMsg.className = 'message bot';
+  botMsg.innerHTML = getResponse(text);
+  chatContent.appendChild(botMsg);
+
+  // Scroll automático
+  chatContent.scrollTop = chatContent.scrollHeight;
+}
+
+function getResponse(question) {
+  switch (question) {
+    case '¿Cómo puedo registrarme?':
+      return 'Puedes registrarte dando clic en el botón "Registrarse" arriba a la derecha.';
+    case '¿Dónde están ubicados?':
+      return 'Estamos ubicados en Lima, Perú 🇵🇪';
+    case '¿Qué métodos de pago aceptan?':
+      return 'Aceptamos Yape, Plin, tarjetas Visa y Mastercard.';
+    default:
+      return 'Lo siento, no entendí tu pregunta.';
+  }
+}
+</script>
+
+
 
 
 </body>

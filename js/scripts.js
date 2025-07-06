@@ -67,3 +67,25 @@ document.getElementById("chatbot-toggle").addEventListener("click", () => {
 document.getElementById("close-chat").addEventListener("click", () => {
   document.getElementById("chatbot-window").classList.add("hidden");
 });
+
+window.addEventListener('scroll', () => {
+  const section = document.querySelector('.seccion-historias');
+  const scrollY = window.scrollY;
+  const sectionTop = section.offsetTop;
+  const sectionHeight = section.offsetHeight;
+
+  if (scrollY + window.innerHeight > sectionTop && scrollY < sectionTop + sectionHeight) {
+    const scrollProgress = Math.min(1, (scrollY + window.innerHeight - sectionTop) / sectionHeight);
+    const moveY = scrollProgress * 200; // Ajusta el número para más o menos desplazamiento
+    section.style.backgroundPosition = `center ${moveY}px`;
+  }
+});
+const historias = document.querySelector('.seccion-historias');
+const observer = new IntersectionObserver((entries) => {
+  if (entries[0].isIntersecting) {
+    historias.classList.add('animate-drip');
+  }
+}, { threshold: 0.5 });
+
+observer.observe(historias);
+
