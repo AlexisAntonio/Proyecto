@@ -1010,7 +1010,7 @@ h1::after, h2::after {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .icon-cerrar {
