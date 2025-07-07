@@ -852,7 +852,7 @@ h1::after, h2::after {
 .galeria-historias img {
   width: 100%;
   height: 100%;
-  object-fit: hover;
+  object-fit: cover;
   filter: grayscale(20%) brightness(1.1);
   transition: transform 0.4s ease, filter 0.3s ease;
 }
