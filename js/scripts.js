@@ -89,3 +89,11 @@ const observer = new IntersectionObserver((entries) => {
 
 observer.observe(historias);
 
+// Permitir cerrar el modal al hacer clic fuera del contenido
+document.querySelectorAll('.historia-modal').forEach(modal => {
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+});

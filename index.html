@@ -9,6 +9,50 @@
 </head>
 <body>
 
+<!-- PORTADA -->
+  <!-- BOTONERA FIJA -->
+  <div class="top-navbar">
+    <div class="btn-group">
+      <button onclick="scrollToSection('portada')">
+        <img src="assets/home.png" alt="Inicio" class="icon-home" />
+      </button>
+      <button onclick="scrollToSection('historias')">HISTORIAS</button>
+      <button onclick="scrollToSection('sinfiltro')">SIN FILTRO</button>
+      <button onclick="scrollToSection('mapa')">MAPA SONORO</button>
+      <button onclick="scrollToSection('voz')">VOZ EN FRECUENCIA</button>
+      <button onclick="scrollToSection('blog')">BLOG</button>
+      <button onclick="scrollToSection('comparte')">COMPARTE CON NOSOTROS</button>
+    </div>
+  </div>
+
+  <!-- PORTADA -->
+  <section id="portada" class="section portada">
+    <video autoplay muted loop class="background-video">
+      <source src="assets/INTRO LAS CALLES HABLAN.mp4" type="video/mp4">
+    </video>
+    <div class="overlay"></div>
+    <div class="content-wrap">
+      <!-- Puedes quitar la botonera de aquí -->
+    </div>
+  </section>
+
+  <!-- PREGUNTA -->
+  <section id="pregunta" class="section pregunta">
+
+    <div class="content-wrap">
+      <h1 id="h1pregunta">¿Qué nos están diciendo las paredes, las rimas y los pasos de los barrios que pocos miran?</h1>
+
+      <div class="img-container">
+        <div id="img-container_2">
+          <img src="assets/pregunta.png" alt="pregunta" />
+        </div>
+        <div id="txt-container_2">
+          <p>Para 2030, empoderar y promover la inclusión social, económica y política de todas las personas, independientemente de su edad, sexo, discapacidad, raza, etnia, origen, religión o situación económica u otra condición.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
 <!-- PANTALLA INICIO -->
 <section id="home" class="section section-bg">
   <video autoplay muted loop class="background-video">
@@ -16,7 +60,7 @@
   </video>
   <div class="overlay"></div>
   <div class="content-wrap">
-    <h1>Explora las Voces</h1>
+    <h1>VIDEO INTRODUCTORIO</h1>
 
     <div class="video-container">
       <div id="video-container_2">
@@ -25,227 +69,175 @@
         </video>
       </div>
     </div>
-
-    <div class="btn-group">
-      <button onclick="scrollToSection('historias')">Historias</button>
-      <button onclick="scrollToSection('rima')">Rima tu Voz</button>
-      <button onclick="scrollToSection('mapa')">Mapa Sonoro</button>
-      <button onclick="scrollToSection('contacto')">Contáctanos</button>
-    </div>
   </div>
 </section>
 
   <!-- HISTORIAS -->
   <section id="historias" class="seccion-historias">
-  <button class="back-button" onclick="scrollToSection('home')">
-    <img src="assets/home.png" alt="Inicio" class="icon-home" />
-  </button>
-  <h2 class="titulo-historias">📖 Historias</h2>
+
+  <h2 class="titulo-historias">RAÍCES URBANAS</h2>
 
   <div class="contenedor-historias">
-    <!-- Imagen principal grande -->
-    <div class="historia-principal" onclick="mostrarHistoria('historia-grande')">
-      <img src="assets/grafiti2.jpg" alt="Historia destacada" />
-    </div>
 
     <!-- Cuadro de imágenes pequeñas -->
-    <div class="galeria-historias">
+    <div class="carousel-container-imagenes">
+  <button id="prevBtnImagenes" class="carousel-btn carousel-left" onclick="moveImagenes(-1)">⬅</button>
+
+  <div class="carousel-viewport">
+    <div class="carousel-track-imagenes" id="carouselImagenes">
       <div onclick="mostrarHistoria('historia-pequeña-1')">
-        <img src="assets/grafiti3.jpg" alt="Historia 01" />
+        <img src="assets/grafiti1.jpg" alt="Historia 01" />
       </div>
       <div onclick="mostrarHistoria('historia-pequeña-2')">
-        <img src="assets/grafiti1.jpg" alt="Historia 02" />
+        <img src="assets/grafiti2.jpg" alt="Historia 02" />
       </div>
       <div onclick="mostrarHistoria('historia-pequeña-3')">
-        <img src="assets/grafiti4.JPG" alt="Historia 03" />
+        <img src="assets/grafiti3.JPG" alt="Historia 03" />
       </div>
       <div onclick="mostrarHistoria('historia-pequeña-4')">
-        <img src="assets/grafiti5.jpg" alt="Historia 04" />
+        <img src="assets/grafiti4.jpg" alt="Historia 04" />
       </div>
     </div>
+  </div>
+
+  <button id="nextBtnImagenes" class="carousel-btn carousel-right" onclick="moveImagenes(1)">➡</button>
+</div>
   </div>
 
     <!-- Historia 01 -->
-      <div id="historia-grande" class="historia-modal">
-        <div class="contenido-historia">
-          <span class="cerrar" onclick="cerrarHistoria('historia-grande')">&times;</span>
-          <img src="assets/grafiti2.jpg" alt="Grafiti en Barranco" />
-          <h3>Graffiti en Av. Bolognesi - Barranco</h3>
-          <p>Esta obra representa la voz de la juventud barranquina, con trazos que evocan libertad y protesta social.</p>
-        </div>
-      </div>
-
-    <!-- Historia 02 -->
       <div id="historia-pequeña-1" class="historia-modal">
         <div class="contenido-historia">
           <span class="cerrar" onclick="cerrarHistoria('historia-pequeña-1')">&times;</span>
-          <img src="assets/grafiti3.jpg" alt="Grafiti en Barranco" />
-          <h3>Graffiti en Av. Bolognesi - Barranco</h3>
-          <p>Esta obra representa la voz de la juventud barranquina, con trazos que evocan libertad y protesta social.</p>
+          <video id="video-historia" controls autoplay muted loop>
+            <source src="assets/INTRO LAS CALLES HABLAN.mp4" type="video/mp4">
+          </video>
+          <h3>Santiago Danilo Alvarado - Nilo</h3>
+          <p>Artista urbano y graffitero autodidacta, participante del festival Lima 28. Conoció el graffiti en el colegio y desde entonces lo usa como vía de expresión personal y colectiva.</p>
+          <h3>Daniel Olortegui - AKM</h3>
+          <p>Pintor abstracto y graffitero independiente, trabajador municipal en Carabayllo. Explora el arte urbano como extensión de su práctica artística, inspirando a su entorno cercano</p>
         </div>
       </div>
-    <!-- Historia 03 -->
+    <!-- Historia 02 -->
       <div id="historia-pequeña-2" class="historia-modal">
         <div class="contenido-historia">
           <span class="cerrar" onclick="cerrarHistoria('historia-pequeña-2')">&times;</span>
-          <img src="assets/grafiti1.jpg" alt="Grafiti en Barranco" />
-          <h3>Graffiti en Av. Bolognesi - Barranco</h3>
-          <p>Esta obra representa la voz de la juventud barranquina, con trazos que evocan libertad y protesta social.</p>
+          <video id="video-historia" controls autoplay muted loop>
+            <source src="assets/INTRO LAS CALLES HABLAN.mp4" type="video/mp4">
+          </video>
+          <h3>Edward Briceño - Cacofónico</h3>
+          <p>Periodista y productor audiovisual de la UNMSM, rap</p>
         </div>
       </div>
-    <!-- Historia 04 -->
+    <!-- Historia 03 -->
       <div id="historia-pequeña-3" class="historia-modal">
         <div class="contenido-historia">
           <span class="cerrar" onclick="cerrarHistoria('historia-pequeña-3')">&times;</span>
-          <img src="assets/img1.jpg" alt="Grafiti en Barranco" />
-          <h3>Graffiti en Av. Bolognesi - Barranco</h3>
-          <p>Esta obra representa la voz de la juventud barranquina, con trazos que evocan libertad y protesta social.</p>
+          <video id="video-historia" controls autoplay muted loop>
+            <source src="assets/INTRO LAS CALLES HABLAN.mp4" type="video/mp4">
+          </video>
+          <h3>Andrés Vilca Cabanillas Artezano (apodo)</h3>
+          <p>Organizador de batallas de freestyle en el comedor de San Marcos y estudiante de educación base 21</p>
         </div>
       </div>
-    <!-- Historia 05 -->
+    <!-- Historia 04 -->
       <div id="historia-pequeña-4" class="historia-modal">
         <div class="contenido-historia">
           <span class="cerrar" onclick="cerrarHistoria('historia-pequeña-4')">&times;</span>
-          <img src="assets/grafiti1.jpg" alt="Grafiti en Barranco" />
-          <h3>Graffiti en Av. Bolognesi - Barranco</h3>
-          <p>Esta obra representa la voz de la juventud barranquina, con trazos que evocan libertad y protesta social.</p>
+          <video id="video-historia" controls autoplay muted loop>
+            <source src="assets/INTRO LAS CALLES HABLAN.mp4" type="video/mp4">
+          </video>
+          <h3>Antoni Alejos Milla </h3>
+          <p>Estudiante de la carrera administración en la UNMSM y rapero conocido como Antop</p>
         </div>
       </div>
 
   </section>
 
-  <!-- RIMA TU VOZ -->
-  <section id="rima" class="seccion-rima">
-    <button class="back-button" onclick="scrollToSection('home')">
-     <img src="assets/home.png" alt="Inicio" class="icon-home" />
-    </button>
-  <h2 class="titulo-rimas">🎤 Rima tu Voz</h2>
+
+<!-- SIN FILTRO -->
+<section id="sinfiltro" class="seccion-rima">
+  <h2 class="titulo-sinfiltro">Rimar, pintar, gritar sin permiso. La calle no tiene filtro, en cualquier realidad.</h2>
 
   <div class="rima-layout">
-    <!-- Carrusel de video (1 a la vez) -->
-    <div class="carousel-container">
-      <button id="prevBtn" class="carousel-btn" onclick="moveCarousel(-1)">⬅</button>
-
-      <div class="carousel-track" id="videoCarousel">
-        <video src="assets/INTRO LAS CALLES HABLAN.mp4" controls class="carousel-video"></video>
-        <video src="assets/INTRO LAS CALLES HABLAN.mp4" controls class="carousel-video"></video>
-        <video src="assets/INTRO LAS CALLES HABLAN.mp4" controls class="carousel-video"></video>
-      </div>
-
-      <button id="nextBtn" class="carousel-btn" onclick="moveCarousel(1)">➡</button>
-      </div>
-
-      <!-- Textos -->
-      <div class="text-column">
-        <div class="caja-rima">
-          <p>✍️ Bienvenido a Rima tu Voz. Aquí las palabras se convierten en revolución lírica.</p>
-        </div>
-        <div class="caja-rima">
-          <p>🔥 Tu voz tiene poder. Cada verso cuenta, cada rima resuena en las calles.</p>
-        </div>
+    <!-- Bloque 1 -->
+    <div class="rima-bloque">
+      <video src="assets/INTRO LAS CALLES HABLAN.mp4" controls class="rima-video"></video>
+      <div class="caja-rima">
+        <h3 class="subtitulo">VIDEO COMEDOR</h3>
+        <p>Los viernes, frente al comedor de San Marcos, la palabra se convierte en combate y en comunidad. Jóvenes se juntan a improvisar, compartir y liberar lo que cargan.</p>
       </div>
     </div>
-  </section>
 
-
-
-  <!-- MAPA SONORO -->
-<section id="mapa" class="section">
-  <button class="back-button" onclick="scrollToSection('home')">
-    <img src="assets/home.png" alt="Inicio" class="icon-home" />
-  </button>
-  <h2 class="titulo-mapa">🗺️ Mapa Sonoro</h2>
-
-  <div class="mapa-interactivo">
-    <img src="assets/barranco-mapa.jpg" alt="Mapa de Lima" class="img-mapa" />
-
-    <!-- Puntos del mapa -->
-    <div class="punto-mapa" style="top: 60%; left: 60%;" onclick="mostrarHistoria('historia1')">
-      <i class="fas fa-map-marker-alt"></i>
-    </div>
-
-    <div class="punto-mapa" style="top: 30%; left: 40%;" onclick="mostrarHistoria('historia2')">
-      <i class="fas fa-map-marker-alt"></i>
-    </div>
-
-    <div class="punto-mapa" style="top: 45%; left: 75%;" onclick="mostrarHistoria('historia3')">
-      <i class="fas fa-map-marker-alt"></i>
-    </div>
-
-    <div class="punto-mapa" style="top: 60%; left: 30%;" onclick="mostrarHistoria('historia4')">
-      <i class="fas fa-map-marker-alt"></i>
-    </div>
-  </div>
-
-  <!-- Historia 1 -->
-  <div id="historia1" class="historia-modal">
-    <div class="contenido-historia">
-      <span class="cerrar" onclick="cerrarHistoria('historia1')">&times;</span>
-      <img src="assets/grafiti1.jpg" alt="Grafiti en Barranco" />
-      <h3>Graffiti en Av. Bolognesi - Barranco</h3>
-      <p>Esta obra representa la voz de la juventud barranquina, con trazos que evocan libertad y protesta social.</p>
-    </div>
-  </div>
-
-  <!-- Historia 2 -->
-  <div id="historia2" class="historia-modal">
-    <div class="contenido-historia">
-      <span class="cerrar" onclick="cerrarHistoria('historia2')">&times;</span>
-      <img src="assets/grafiti2.jpg" alt="Grafiti en Comas" />
-      <h3>Graffiti en la Av. Universitaria - Comas</h3>
-      <p>Un mural que muestra escenas cotidianas del distrito, mezclando cultura urbana con historia local.</p>
-    </div>
-  </div>
-
-  <!-- Historia 3 -->
-  <div id="historia3" class="historia-modal">
-    <div class="contenido-historia">
-      <span class="cerrar" onclick="cerrarHistoria('historia3')">&times;</span>
-      <img src="assets/grafiti3.jpg" alt="Grafiti en Miraflores" />
-      <h3>Graffiti cerca del Malecón - Miraflores</h3>
-      <p>Este arte urbano busca concientizar sobre la protección del medio ambiente y el océano.</p>
-    </div>
-  </div>
-
-  <!-- Historia 4 -->
-  <div id="historia4" class="historia-modal">
-    <div class="contenido-historia">
-      <span class="cerrar" onclick="cerrarHistoria('historia4')">&times;</span>
-      <img src="assets/grafiti4.JPG" alt="Grafiti en San Juan de Lurigancho" />
-      <h3>Grafiti en el Parque Zonal - SJL</h3>
-      <p>Una poderosa imagen que denuncia la violencia y lucha por los derechos de la mujer.</p>
+    <!-- Bloque 2 -->
+    <div class="rima-bloque">
+      <video src="assets/INTRO LAS CALLES HABLAN.mp4" controls class="rima-video"></video>
+      <div class="caja-rima">
+        <h3 class="subtitulo">VR</h3>
+        <p>Dos artistas urbanos, Nilo y AKM, llevan sus trazos a una nueva dimensión. La calle también se reinventa en el espacio digital.</p>
+      </div>
     </div>
   </div>
 </section>
 
+  <!-- MAPA SONORO -->
+<section id="mapa" class="section">
 
+  <h2 class="titulo-mapa">🗺️ Mapa Sonoro</h2>
+  <!-- MAPA LINK -->
+  <iframe src="https://uploads.knightlab.com/storymapjs/66946dcd2d71a3db92fa613b8db6d727/las-calles-en-lima-hablan/index.html" frameborder="0" width="100%" height="800"></iframe>
 
-  <!-- CONTÁCTANOS -->
-  <section id="contacto" class="section contacto-elegante">
-    <button class="back-button" onclick="scrollToSection('home')">
-      <img src="assets/home.png" alt="Inicio" class="icon-home" />
-    </button>
+</section>
 
-    <h2 class="titulo-contactanos">📱 Contáctanos</h2>
+<!-- VOZ EN FRECUENCIA -->
+<section id="voz" class="seccion-voz">
+  <h2 class="titulo-sinfiltro">-----</h2>
 
-    <div class="card-contacto">
-      <p class="descripcion-contacto">
-        Somos una iniciativa que promueve el <strong>rescate de las voces de la comunidad</strong>.
-        Aquí encontrarás <em>historias, rimas, mapas sonoros</em> y mucho más.
-      </p>
-
-      <ul class="info-contacto">
-        <li><i class="fas fa-map-marker-alt"></i> Lima, Perú</li>
-        <li><i class="fas fa-envelope"></i> contacto@exploravoces.pe</li>
-      </ul>
-
-      <div class="social-contacto">
-        <a href="https://www.facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://exploravoces.pe" target="_blank" title="Sitio Web"><i class="fas fa-globe"></i></a>
+  <div class="voz-layout">
+    <!-- Bloque 1 -->
+    <div class="voz-bloque">
+      <div class="caja-voz">
+        <h3 class="subtitulo">VIDEO COMEDOR</h3>
+        <p>TEXTO</p>
+      </div>
+      <div class="caja-playlist">
+        <p>PLAYLIST</p>
+      </div>
+      <div class="caja-podcasts">
+        <video src="assets/INTRO LAS CALLES HABLAN.mp4" controls class="rima-video"></video>
       </div>
     </div>
-  </section>
+
+  </div>
+</section>
+
+  <!-- BLOGGER -->
+<section id="blog" class="section">
+
+  <h2 class="titulo-blog">BLOG</h2>
+  <!-- MAPA LINK -->
+  <iframe src="" frameborder="0" width="100%" height="800"></iframe>
+
+</section>
+
+  <!-- CONTÁCTANOS -->
+<section id="retanos" class="section retanos">
+  <h2 class="titulo-rimas">#RÉTANOSCONYOURIMA</h2>
+  <p class="descripcion-contacto">
+    Este proyecto sigue creciendo con cada voz que se suma.<br>
+    Si pintas, rimás, grabas o resistes desde tu esquina, queremos escucharte.
+  </p>
+  <p>
+    📩 Escríbenos, comparte tu historia o súmate con una rima.<br>
+    Sube tu video, mural o idea con el hashtag <strong>#RétanosConTuRima</strong>
+    y forma parte de esta red de expresión callejera.
+  </p>
+
+  <div class="cta-subida">
+    <a href="https://forms.gle/sSbmV98bSwcobssPA" target="_blank" class="btn-subir">
+      🚀 Subir archivo y descripción
+    </a>
+  </div>
+</section>
 
 
   <script>
@@ -365,6 +357,38 @@ function getResponse(question) {
   }
 }
 </script>
+
+<script>
+let indexImagenes = 0;
+
+function moveImagenes(direction) {
+  const track = document.getElementById('carouselImagenes');
+  const items = track.querySelectorAll('div');
+  const totalItems = items.length;
+  const visibleItems = 2;
+
+  indexImagenes += direction;
+
+  if (indexImagenes < 0) indexImagenes = 0;
+  if (indexImagenes > totalItems - visibleItems) {
+    indexImagenes = totalItems - visibleItems;
+  }
+
+  const itemWidth = items[0].offsetWidth + 20; // ancho + gap
+  const offset = itemWidth * indexImagenes;
+  track.style.transform = `translateX(-${offset}px)`;
+
+  document.getElementById('prevBtnImagenes').style.display = indexImagenes > 0 ? 'block' : 'none';
+  document.getElementById('nextBtnImagenes').style.display = indexImagenes < totalItems - visibleItems ? 'block' : 'none';
+}
+
+// Mostrar flechas iniciales correctamente
+window.addEventListener('load', () => {
+  moveImagenes(0);
+});
+</script>
+
+
 
 </body>
 </html>
